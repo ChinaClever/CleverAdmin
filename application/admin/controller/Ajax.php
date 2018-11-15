@@ -146,7 +146,7 @@ class Ajax extends Backend
         //操作的数据表
         $table = $this->request->post("table");
         //排序的方式
-        $orderway = $this->request->post("orderway", "", 'strtolower');
+        $orderway = $this->request->post("orderway", 'strtolower');
         $orderway = $orderway == 'asc' ? 'ASC' : 'DESC';
         $sour = $weighdata = [];
         $ids = explode(',', $ids);
@@ -198,17 +198,16 @@ class Ajax extends Backend
     {
         $type = $this->request->request("type");
         switch ($type) {
-            case 'all':
-            case 'content':
+            case 'content' || 'all':
                 rmdirs(CACHE_PATH, false);
                 Cache::clear();
                 if ($type == 'content')
                     break;
-            case 'template':
+            case 'template' || 'all':
                 rmdirs(TEMP_PATH, false);
                 if ($type == 'template')
                     break;
-            case 'addons':
+            case 'addons' || 'all':
                 Service::refresh();
                 if ($type == 'addons')
                     break;

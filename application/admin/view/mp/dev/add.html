@@ -1,0 +1,76 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Devtype')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-devtype" data-rule="required" class="form-control selectpicker" name="row[devtype]">
+                {foreach name="devtypeList" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="normal"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sn')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sn" data-rule="required" class="form-control" name="row[sn]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Barcode')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-barcode" data-rule="required" class="form-control" name="row[barcode]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Purpose')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-purpose" data-rule="required" class="form-control" name="row[purpose]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Batch')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-batch" data-rule="required" class="form-control" name="row[batch]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Testdate')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-testdate" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" name="row[testdate]" type="text" value="{:date('Y-m-d')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Op')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-op" data-rule="required" class="form-control" name="row[op]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Cn')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-cn" data-rule="required" class="form-control" name="row[cn]" type="text">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

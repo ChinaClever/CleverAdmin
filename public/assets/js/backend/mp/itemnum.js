@@ -27,8 +27,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'id', title: __('Id')},
                         {field: 'dev.devtype', title: __('Dev.devtype')},
                         {field: 'dev.sn', title: __('Dev.sn')},
-                        {field: 'dev.barcode', title: __('Dev.barcode')},
-
+                        {field: 'dev.barcode', title: __('Dev.barcode'), formatter:Table.api.formatter.search},
                         {field: 'all', title: __('All')},
                         {field: 'finish', title: __('Finish')},
                         {field: 'pass', title: __('Pass')},

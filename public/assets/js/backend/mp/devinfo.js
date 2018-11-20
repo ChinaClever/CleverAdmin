@@ -25,25 +25,14 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'mp_dev_id', title: __('Mp_dev_id')},
+                        {field: 'dev.devtype', title: __('Dev.devtype')},
+                        {field: 'dev.sn', title: __('Dev.sn')},
+                        {field: 'dev.barcode', title: __('Dev.barcode'), formatter:Table.api.formatter.search},
                         {field: 'df', title: __('Df')},
                         {field: 'line', title: __('Line')},
                         {field: 'loop', title: __('Loop')},
                         {field: 'output', title: __('Output')},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
-                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
-                        {field: 'dev.id', title: __('Dev.id')},
-                        {field: 'dev.devtype', title: __('Dev.devtype')},
-                        {field: 'dev.status', title: __('Dev.status'), formatter: Table.api.formatter.status},
-                        {field: 'dev.sn', title: __('Dev.sn')},
-                        {field: 'dev.barcode', title: __('Dev.barcode')},
-                        {field: 'dev.purpose', title: __('Dev.purpose')},
-                        {field: 'dev.batch', title: __('Dev.batch')},
-                        {field: 'dev.testdate', title: __('Dev.testdate'), operate:'RANGE', addclass:'datetimerange'},
-                        {field: 'dev.op', title: __('Dev.op')},
-                        {field: 'dev.cn', title: __('Dev.cn')},
-                        {field: 'dev.createtime', title: __('Dev.createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
-                        {field: 'dev.updatetime', title: __('Dev.updatetime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

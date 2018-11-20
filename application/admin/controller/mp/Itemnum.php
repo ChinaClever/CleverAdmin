@@ -73,4 +73,16 @@ class Itemnum extends Backend
         }
         return $this->view->fetch();
     }
+
+    /**
+     * 详情
+     */
+    public function detail($ids)
+    {
+        $row = $this->model->get(['mp_dev_id' => $ids]);
+        if (!$row)
+            $this->error(__('No Results were found'));
+        $this->view->assign("row", $row->toArray());
+        return $this->view->fetch();
+    }
 }

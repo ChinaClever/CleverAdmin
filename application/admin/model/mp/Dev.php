@@ -18,16 +18,16 @@ class Dev extends Model
     
     // 追加属性
     protected $append = [
-        'devtype_text',
+//        'devtype_text',
         'status_text'
     ];
     
 
     
-    public function getDevtypeList()
-    {
-        return ['M-PDU' => __('M-pdu'),'Z-PDU' => __('Z-pdu'),'IP-PDU' => __('Ip-pdu'),'SI-PDU' => __('Si-pdu')];
-    }     
+//    public function getDevtypeList()
+//    {
+//        return ['M-PDU' => __('M-pdu'),'Z-PDU' => __('Z-pdu'),'IP-PDU' => __('Ip-pdu'),'SI-PDU' => __('Si-pdu')];
+//    }
 
     public function getStatusList()
     {
@@ -35,12 +35,12 @@ class Dev extends Model
     }     
 
 
-    public function getDevtypeTextAttr($value, $data)
-    {        
-        $value = $value ? $value : (isset($data['devtype']) ? $data['devtype'] : '');
-        $list = $this->getDevtypeList();
-        return isset($list[$value]) ? $list[$value] : '';
-    }
+//    public function getDevtypeTextAttr($value, $data)
+//    {
+//        $value = $value ? $value : (isset($data['devtype']) ? $data['devtype'] : '');
+//        $list = $this->getDevtypeList();
+//        return isset($list[$value]) ? $list[$value] : '';
+//    }
 
 
     public function getStatusTextAttr($value, $data)

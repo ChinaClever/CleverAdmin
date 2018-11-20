@@ -25,9 +25,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'devtype', title: __('Devtype'), searchList: {"M-PDU":__('M-pdu'),"Z-PDU":__('Z-pdu'),"IP-PDU":__('Ip-pdu'),"SI-PDU":__('Si-pdu')}, formatter: Table.api.formatter.normal},
+                        {field: 'devtype', title: __('Devtype'),formatter: Controller.api.formatter.browser },
+
+                        // {field: 'devtype', title: __('Devtype'), searchList: {"M-PDU":__('M-pdu'),"Z-PDU":__('Z-pdu'),"IP-PDU":__('Ip-pdu'),"SI-PDU":__('Si-pdu')}, formatter: Table.api.formatter.normal},
                         {field: 'sn', title: __('Sn'), formatter: Controller.api.formatter.sn},
-                        {field: 'barcode', title: __('Barcode')},
+                        {field: 'barcode', title: __('Barcode'), formatter:Table.api.formatter.search},
                         {field: 'purpose', title: __('Purpose')},
                         {field: 'batch', title: __('Batch')},
                         {field: 'status', title: __('Status'), searchList: {"normal":__('Normal'),"deleted":__('Deleted')}, formatter: Table.api.formatter.status},
@@ -35,7 +37,28 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'op', title: __('Op'), visible:false},
                         {field: 'cn', title: __('Cn'), visible:false},
                         {field: 'createtime', title: __('Createtime'), visible:false, operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
-                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
+                      //  {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
+
+                        //操作栏,默认有编辑、删除或排序按钮,可自定义配置buttons来扩展按钮
+                        {
+                            field: 'operate',
+                            width: "120px",
+                            title: __('Operate'),
+                            table: table,
+                            events: Table.api.events.operate,
+                            buttons: [
+                                {
+                                    name: 'detail',
+                                    title: __('测试项目数量'),
+                                    classname: 'btn btn-xs btn-primary btn-dialog',
+                                    icon: 'fa fa-list',
+                                    url: 'mp/itemnum/detail',
+                                }
+                            ],
+                            formatter: Table.api.formatter.operate
+                        }
+
+
                     ]
                 ]
             });
@@ -59,10 +82,16 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     url = "mp/record?dev." + this.field + "=" + value;
 
                     //方式一,直接返回class带有addtabsit的链接,这可以方便自定义显示内容
-                    return '<a href="' + url + '" class="label label-success addtabsit" title="' + __("Search %s", value) + '">' + __('Search %s', value) + '</a>';
+                    return '<a href="' + url + '" class="label label-success addtabsit" title="' + __("SN: %s", value) + '">' + value + '</a>';
 
                     //方式二,直接调用Table.api.formatter.addtabs
-                    return Table.api.formatter.addtabs(value, row, index, url);
+                    // return Table.api.formatter.addtabs(value, row, index, url);
+                },
+                browser: function (value, row, index) {
+                    url = "mp/devinfo/detail?ids=" + row.id;
+
+                    //方式一,直接返回class带有addtabsit的链接,这可以方便自定义显示内容
+                    return '<a href="' + url + '" class="btn btn-xs btn-dialog" title="' + __("%s", value) + '">' + __('%s', value) + '</a>';
                 }
             }
         }

@@ -22,7 +22,7 @@ class Dev extends Backend
     {
         parent::_initialize();
         $this->model = new \app\admin\model\mp\Dev;
-        $this->view->assign("devtypeList", $this->model->getDevtypeList());
+//        $this->view->assign("devtypeList", $this->model->getDevtypeList());
         $this->view->assign("statusList", $this->model->getStatusList());
     }
     

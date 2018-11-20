@@ -24,7 +24,9 @@
         "phpmailer/phpmailer": "^5.2",
         "karsonzhang/fastadmin-addons": "~1.1.4",
         "overtrue/pinyin": "~3.0",
-        "phpoffice/phpexcel": "^1.8"
+        "phpoffice/phpexcel": "^1.8",
+        "topthink/think-worker": "1.0.*",
+        "workerman/workerman-for-win": "^3.5"
     },
     "config": {
         "preferred-install": "dist"

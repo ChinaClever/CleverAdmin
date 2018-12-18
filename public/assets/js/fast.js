@@ -249,7 +249,7 @@ define(['jquery', 'bootstrap', 'toastr', 'layer', 'lang'], function ($, undefine
                 i = 1;
             string = string.toLowerCase();
             //string = typeof Lang[string] != 'undefined' ? Lang[string] : string;
-            if (typeof Lang[string] != 'undefined') {
+            if (typeof Lang !== 'undefined' && typeof Lang[string] !== 'undefined') {
                 if (typeof Lang[string] == 'object')
                     return Lang[string];
                 string = Lang[string];

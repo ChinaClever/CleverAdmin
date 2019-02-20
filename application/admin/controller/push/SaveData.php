@@ -38,6 +38,7 @@ class SaveData
         if($ret) {
             $mode = new Devinfo();
             $mode->mp_dev_id = $id;
+            $data['dev_info']['mp_dev_id'] = $id;
             $ret = $mode->data($data['dev_info'])->save();
             if(!$ret) {
                 $ret = json_encode([ 'code' => -4, 'msg'  => '设备信息保存失败：' . $mode->getError() ]);
@@ -53,6 +54,7 @@ class SaveData
         if($ret) {
             $mode = new Itemnum();
             $mode->mp_dev_id = $id;
+            $data['item_num']['mp_dev_id'] = $id;
             $ret = $mode->data($data['item_num'])->save();
             if(!$ret) {
                 $ret = json_encode([ 'code' => -5, 'msg'  => '测试数量保存失败：' . $mode->getError() ]);
@@ -66,6 +68,7 @@ class SaveData
     {
         $model = new Record();
         $model->mp_dev_id = $id;
+        $data['mp_dev_id'] = $id;
         $ret = $model->data($data)->save();
         if(!$ret) {
             $ret = json_encode([ 'code' => -6, 'msg'  => '测试日志保存失败：' . $model->getError() ]);

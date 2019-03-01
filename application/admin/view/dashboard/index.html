@@ -251,7 +251,6 @@
                         <div class="panel bg-blue">
                             <div class="panel-body">
                                 <div class="panel-title">
-                                    <span class="label label-success pull-right">{:__('Real time')}</span>
                                     <h5>{:__('ZPDU count')}</h5>
                                 </div>
                                 <div class="panel-content">
@@ -266,7 +265,6 @@
                         <div class="panel bg-aqua-gradient">
                             <div class="panel-body">
                                 <div class="ibox-title">
-                                    <span class="label label-info pull-right">{:__('Real time')}</span>
                                     <h5>{:__('MPDU count')}</h5>
                                 </div>
                                 <div class="ibox-content">
@@ -282,7 +280,6 @@
                         <div class="panel bg-purple-gradient">
                             <div class="panel-body">
                                 <div class="ibox-title">
-                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
                                     <h5>{:__('IP-PDU count')}</h5>
                                 </div>
                                 <div class="ibox-content">
@@ -299,7 +296,6 @@
                         <div class="panel bg-green-gradient">
                             <div class="panel-body">
                                 <div class="ibox-title">
-                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
                                     <h5>{:__('SI-PDU count')}</h5>
                                 </div>
                                 <div class="ibox-content">
@@ -315,44 +311,18 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="box box-danger">
-                            <div class="box-header">
-                                <h3 class="box-title">{:__('Recent news')}</h3>
-                                <div class="box-tools pull-right">
-                                    <a href="https://www.fastadmin.net" target="_blank" class="btn btn-box-tool">{:__('More')}</a>
-                                </div>
-                            </div>
-                            <div class="box-body" id="news-list">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="box box-success">
-                            <div class="box-header">
-                                <h3 class="box-title">{:__('Recent discussion')}</h3>
-                                <div class="box-tools pull-right">
-                                    <a href="https://forum.fastadmin.net" class="btn btn-box-tool">{:__('More')}</a>
-                                </div>
-                            </div>
-                            <div class="box-body" id="discussion-list">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-12">
                         <div class="box box-info">
                             <div class="box-header"><h3 class="box-title">{:__('Server info')}</h3></div>
                             <div class="box-body">
                                 <table class="table table-striped">
                                     <tbody>
                                         <tr>
-                                            <td width="140">{:__('FastAdmin version')}</td>
+                                            <td width="140">{:__('version')}</td>
                                             <td>{$Think.config.fastadmin.version} <a href="javascript:;" class="btn btn-xs btn-checkversion">检查最新版</a></td>
                                         </tr>
                                         <tr>
-                                            <td>{:__('FastAdmin addon version')}</td>
+                                            <td>{:__('addon version')}</td>
                                             <td>{$addonversion}</td>
                                         </tr>
                                         <tr>
@@ -407,34 +377,7 @@
         </div>
     </div>
 </div>
-<script id="newstpl" type="text/html">
-    <ul class="nav nav-stacked">
-        <%for(var i=0;i < news.length;i++){%>
-        <%var item=news[i];%>
-        <li>
-            <a href="<%=item.url%>" target="_blank">
-                <span class="text"><%=item.title%></span>
-            </a>
-        </li>
-        <%}%>
-    </ul>
-</script>
-<script id="discussiontpl" type="text/html">
-    <ul class="products-list product-list-in-box">
-        <%for(var i=0;i < news.length;i++){%>
-        <%var item=news[i];%>
-        <li class="item">
-            <div class="">
-                <a href="<%=item.url%>" target="_blank" class="product-title"><%=item.title%>
-                    <span class="label label-warning pull-right"><%=item.comments_count%></span></a>
-                <span class="product-description">
-                    <%=item.last_time%>
-                </span>
-            </div>
-        </li>
-        <%}%>
-    </ul>
-</script>
+
 <script>
     var Orderdata = {
     column: {:json_encode(array_keys($paylist))},

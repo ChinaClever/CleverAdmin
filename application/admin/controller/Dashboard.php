@@ -37,13 +37,13 @@ class Dashboard extends Backend
             'totaldevs'        => db('mp_dev')->count(),
             'totalpass'       => db('mp_dev')->where("status='normal'")->count(),
             'totalerrs'       => db('mp_dev')->where("status='deleted'")->count(),
-            'totalrecordcount' => db('mp_record')->count(),
-            'todaydevs'   => db('mp_dev')->whereTime('createtime', 'today')->count(),
-            'todayerrs'  => db('mp_dev')->where("status='deleted'")->whereTime('createtime', 'today')->count(),
+            'totalrecords'    => db('mp_record')->count(),
+            'todaydevs'     => db('mp_dev')->whereTime('createtime', 'today')->count(),
+            'todayerrs'     => db('mp_dev')->where("status='deleted'")->whereTime('createtime', 'today')->count(),
             'todaypass'       => db('mp_dev')->where("status='normal'")->whereTime('createtime', 'today')->count(),
             'todayrecords'    => db('mp_record')->whereTime('createtime', 'today')->count(),
             'sevendevs'         => db('mp_dev')->whereTime('createtime', 'week')->count(),
-            'sevenrecords'         => db('mp_record')->whereTime('createtime', 'week')->count(),
+            'sevenpass'         => db('mp_dev')->where("status='normal'")->whereTime('createtime', 'week')->count(),
             'zpdudevs'        => db('mp_dev')->where("devtype='ZPDU'")->count(),
             'zpdupass'        => db('mp_dev')->where("devtype='ZPDU'")->where("status='normal'")->count(),
             'mpdudevs'        => db('mp_dev')->where("devtype='MPDU'")->count(),
@@ -61,5 +61,4 @@ class Dashboard extends Backend
 
         return $this->view->fetch();
     }
-
 }

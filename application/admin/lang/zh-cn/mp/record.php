@@ -9,6 +9,7 @@ return [
     'Expect'  =>  '期望值',
     'Measured'  =>  '实测值',
     'Status'  =>  '结果',
+    'Deleted' => '失败',
     'Createtime'  =>  '创建时间',
     'Updatetime'  =>  '更新时间',
     'Dev.id'  =>  '编号',

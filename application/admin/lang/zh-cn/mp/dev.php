@@ -11,6 +11,7 @@ return [
     'Testdate'  =>  '测试日期',
     'Op'  =>  '操作员',
     'Cn'  =>  '电脑号',
+    'Deleted' => '失败',
     'Createtime'  =>  '创建时间',
     'Updatetime'  =>  '更新时间'
 ];

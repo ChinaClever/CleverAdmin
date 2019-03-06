@@ -17,6 +17,7 @@ class Dev extends Backend
      * @var \app\admin\model\mp\Dev
      */
     protected $model = null;
+    protected $searchFields = 'id,devtype,sn,barcode';
 
     public function _initialize()
     {
